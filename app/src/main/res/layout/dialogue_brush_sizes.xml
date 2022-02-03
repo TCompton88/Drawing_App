@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageButton
-        android:id="@+id/small_brush"
+        android:id="@+id/smallBrush"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/small"
@@ -17,25 +17,25 @@
         tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/medium_brush"
+        android:id="@+id/mediumBrush"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/medium"
-        app:layout_constraintBottom_toTopOf="@+id/big_brush"
+        app:layout_constraintBottom_toTopOf="@+id/bigBrush"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/small_brush"
+        app:layout_constraintTop_toBottomOf="@+id/smallBrush"
         tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/big_brush"
+        android:id="@+id/bigBrush"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medium_brush"
+        app:layout_constraintTop_toBottomOf="@+id/mediumBrush"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

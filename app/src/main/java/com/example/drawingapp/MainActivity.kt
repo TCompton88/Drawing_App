@@ -3,7 +3,6 @@ package com.example.drawingapp
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.drawingapp.R.layout.dialogue_brush_sizes
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showBrushSizeDialog(){
-        var brushDialog = Dialog(this)
-        brushDialog.setContentView(dialogue_brush_sizes)
+        val brushDialog = Dialog(this)
+        brushDialog.setContentView(R.layout.dialogue_brush_sizes)
         brushDialog.setTitle("Brush Size: ")
     }
 }

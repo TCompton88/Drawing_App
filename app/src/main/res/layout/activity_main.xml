@@ -6,26 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.drawingapp.DrawingView
-        android:id="@+id/drawing_view"
+    <FrameLayout
+        android:id="@+id/fl_drawing_view_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_margin="5dp"
         android:background="@drawable/background_drawing_view_layout"
+        android:padding="1dp"
         app:layout_constraintBottom_toTopOf="@id/ll_paint_colors"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/background_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ireland" />
+
+        <com.example.drawingapp.DrawingView
+            android:id="@+id/drawing_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="#80FFFFFF" />
+    </FrameLayout>
+
 
     <LinearLayout
         android:id="@+id/ll_paint_colors"
-        app:layout_constraintBottom_toTopOf="@id/ib_brush"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/drawing_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/ll_action_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_drawing_view_container">
 
         <ImageButton
             android:layout_width="25dp"
@@ -37,7 +55,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/skin"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -49,7 +67,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/black"
-            tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
+            tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -61,7 +79,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/red"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -73,7 +91,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/green"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -85,7 +103,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/blue"
-            tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
+            tools:ignore="RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -97,7 +115,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/yellow"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -109,7 +127,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/lollipop"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -121,7 +139,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/random"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
         <ImageButton
             android:layout_width="25dp"
@@ -133,21 +151,38 @@
             android:scaleType="fitXY"
             android:src="@drawable/pallet_normal"
             android:tag="@color/white"
-            tools:ignore="TouchTargetSizeCheck,ImageContrastCheck,RedundantDescriptionCheck" />
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck,TouchTargetSizeCheck,UsingOnClickInXml" />
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/ib_brush"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_margin="5dp"
-        android:contentDescription="@string/brush_icon"
-        android:scaleType="fitCenter"
-        android:src="@drawable/brush"
-        app:layout_constraintTop_toBottomOf="@id/ll_paint_colors"
+    <LinearLayout
+        android:id="@+id/ll_action_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_paint_colors">
+
+        <ImageButton
+            android:id="@+id/ib_photo"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/photo_icon"
+            android:scaleType="fitCenter"
+            android:src="@drawable/folder" />
+
+        <ImageButton
+            android:id="@+id/ib_brush"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/brush_icon"
+            android:scaleType="fitCenter"
+            android:src="@drawable/brush" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,5 +16,6 @@
     <color name="yellow">#ffff00</color>
     <color name="lollipop">#35a79c</color>
     <color name="random">#a349b1</color>
+    <color name="eraser">#80ffffff</color>
 
 </resources>

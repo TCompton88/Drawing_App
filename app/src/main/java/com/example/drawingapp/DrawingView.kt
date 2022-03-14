@@ -10,21 +10,21 @@ import android.view.View
 class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     //Variables to access Bitmap and canvas and draw functions of android
-    private var drawPath : CustomPath? = null
-    private var canvasBitmap : Bitmap? = null
+    private var drawPath: CustomPath? = null
+    private var canvasBitmap: Bitmap? = null
     private var drawPaint: Paint? = null
     private var canvasPaint: Paint? = null
     private var brushSize: Float = 0.toFloat()
     private var color = Color.BLACK
     private var canvas: Canvas? = null
-    private  val paths = ArrayList<CustomPath>()
+    private val paths = ArrayList<CustomPath>()
 
     //initializes this class to set up drawing
     init {
         setUpDrawing()
     }
 
-    private fun setUpDrawing(){
+    private fun setUpDrawing() {
         drawPaint = Paint()
         drawPath = CustomPath(color, brushSize)
         drawPaint!!.color = color
@@ -45,13 +45,13 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         super.onDraw(canvas)
         canvas.drawBitmap(canvasBitmap!!, 0f, 0f, canvasPaint)
 
-        for (path in paths){
+        for (path in paths) {
             drawPaint!!.strokeWidth = path.brushSize
             drawPaint!!.color = path.color
             canvas.drawPath(path, drawPaint!!)
         }
-        
-        if(!drawPath!!.isEmpty) {
+
+        if (!drawPath!!.isEmpty) {
             drawPaint!!.strokeWidth = drawPath!!.brushSize
             drawPaint!!.color = drawPath!!.color
             canvas.drawPath(drawPath!!, drawPaint!!)
@@ -62,8 +62,8 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         val touchX = event?.x
         val touchY = event?.y
 
-        when(event?.action){
-            MotionEvent.ACTION_DOWN ->{
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> {
                 drawPath!!.color = color
                 drawPath!!.brushSize = brushSize
 
@@ -75,7 +75,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                 }
             }
 
-            MotionEvent.ACTION_MOVE ->{
+            MotionEvent.ACTION_MOVE -> {
                 if (touchX != null) {
                     if (touchY != null) {
                         drawPath!!.lineTo(touchX, touchY)
@@ -83,7 +83,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                 }
             }
 
-            MotionEvent.ACTION_UP ->{
+            MotionEvent.ACTION_UP -> {
                 paths.add(drawPath!!)
                 drawPath = CustomPath(color, brushSize)
             }
@@ -94,15 +94,19 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         return true
     }
 
-    fun setSizeForBrush(newSize: Float){
-        brushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-        newSize, resources.displayMetrics)
+    fun setSizeForBrush(newSize: Float) {
+        brushSize = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            newSize, resources.displayMetrics
+        )
 
         drawPaint!!.strokeWidth = brushSize
     }
 
-    internal inner class CustomPath(var color: Int,
-                                    var brushSize: Float) : Path() {
+    internal inner class CustomPath(
+        var color: Int,
+        var brushSize: Float
+    ) : Path() {
 
     }
 }

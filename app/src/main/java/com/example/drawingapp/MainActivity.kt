@@ -77,8 +77,6 @@ class MainActivity : AppCompatActivity() {
             )
 
             imageButtonCurrentColor = view
-
-            Toast.makeText(this, "$colorTag", Toast.LENGTH_LONG).show()
         }
     }
 }

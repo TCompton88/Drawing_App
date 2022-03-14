@@ -4,4 +4,13 @@
     <string name="medium_brush">medium brush</string>
     <string name="small_brush">small brush</string>
     <string name="brush_icon">brush-icon</string>
+    <string name="yellow_color_button">yellow color button</string>
+    <string name="random_color_button">random color button</string>
+    <string name="lollipop_color_button">lollipop color button</string>
+    <string name="eraser_button">eraser button</string>
+    <string name="blue_color_button">blue color button</string>
+    <string name="green_color_button">green color button</string>
+    <string name="red_color_button">red color button</string>
+    <string name="black_color_button">black color button</string>
+    <string name="skin_color_button">skin color button</string>
 </resources>

@@ -17,4 +17,5 @@
     <string name="photo_icon">photo_icon</string>
     <string name="background_image">background_image</string>
     <string name="drawing_app" />
+    <string name="undo_icon">undo_icon</string>
 </resources>

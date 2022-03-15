@@ -38,23 +38,23 @@ class MainActivity : AppCompatActivity() {
                 val isGranted = it.value
 
                 if (isGranted) {
-                    Toast.makeText(
-                        this@MainActivity, "Permission Granted",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    /*              Toast.makeText(
+                                      this@MainActivity, "Permission Granted",
+                                      Toast.LENGTH_LONG
+                                  ).show()*/
 
                     val pickIntent =
                         Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     openGalleryLauncher.launch(pickIntent)
 
-                } else {
+                } /*else {
                     if (permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
                         Toast.makeText(
                             this@MainActivity, "Permission Not Granted",
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                }
+                }*/
             }
         }
 
@@ -66,6 +66,11 @@ class MainActivity : AppCompatActivity() {
         drawingView?.setSizeForBrush(15.toFloat())
 
         val linearLayoutColors = findViewById<LinearLayout>(R.id.ll_paint_colors)
+
+        val ibUndo : ImageButton = findViewById(R.id.ib_undo)
+        ibUndo.setOnClickListener{
+            drawingView?.onClickUndo()
+        }
 
         val brushIcon: ImageButton = findViewById(R.id.ib_brush)
         brushIcon.setOnClickListener {

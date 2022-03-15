@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var drawingView: DrawingView? = null
     private var imageButtonCurrentColor: ImageButton? = null
 
-    val openGalleryLauncher: ActivityResultLauncher<Intent> =
+    private val openGalleryLauncher: ActivityResultLauncher<Intent> =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK && result.data != null) {
                 val imageBackground: ImageView = findViewById(R.id.iv_background)

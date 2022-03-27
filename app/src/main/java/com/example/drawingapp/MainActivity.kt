@@ -4,15 +4,15 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import android.provider.MediaStore
 import android.view.View
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private val requestPermission: ActivityResultLauncher<Array<String>> =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             permissions.entries.forEach {
-                val permissionName = it.key
+                //val permissionName = it.key
                 val isGranted = it.value
 
                 if (isGranted) {
@@ -94,19 +94,19 @@ class MainActivity : AppCompatActivity() {
         val brushDialog = Dialog(this)
         brushDialog.setContentView(R.layout.dialogue_brush_sizes)
         brushDialog.setTitle("Brush Size: ")
-        var smallBtn: ImageButton = brushDialog.findViewById(R.id.ib_small_brush)
+        val smallBtn: ImageButton = brushDialog.findViewById(R.id.ib_small_brush)
         smallBtn.setOnClickListener {
             drawingView?.setSizeForBrush(10.toFloat())
             brushDialog.dismiss()
         }
 
-        var mediumBtn: ImageButton = brushDialog.findViewById(R.id.ib_medium_brush)
+        val mediumBtn: ImageButton = brushDialog.findViewById(R.id.ib_medium_brush)
         mediumBtn.setOnClickListener {
             drawingView?.setSizeForBrush(18.toFloat())
             brushDialog.dismiss()
         }
 
-        var largeBtn: ImageButton = brushDialog.findViewById(R.id.ib_large_brush)
+        val largeBtn: ImageButton = brushDialog.findViewById(R.id.ib_large_brush)
         largeBtn.setOnClickListener {
             drawingView?.setSizeForBrush(24.toFloat())
             brushDialog.dismiss()
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showRationaleDialogue(title: String, message: String) {
+    private fun showRationaleDialogue(@Suppress("SameParameterValue") title: String, @Suppress("SameParameterValue") message: String) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setTitle(title)
             .setMessage(message)

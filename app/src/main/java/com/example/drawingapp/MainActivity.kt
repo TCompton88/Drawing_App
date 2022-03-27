@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -34,27 +35,27 @@ class MainActivity : AppCompatActivity() {
     private val requestPermission: ActivityResultLauncher<Array<String>> =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             permissions.entries.forEach {
-                //val permissionName = it.key
+                val permissionName = it.key
                 val isGranted = it.value
 
                 if (isGranted) {
-                    /*              Toast.makeText(
+                                  Toast.makeText(
                                       this@MainActivity, "Permission Granted",
                                       Toast.LENGTH_LONG
-                                  ).show()*/
+                                  ).show()
 
                     val pickIntent =
                         Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     openGalleryLauncher.launch(pickIntent)
 
-                } /*else {
+                } else {
                     if (permissionName == Manifest.permission.READ_EXTERNAL_STORAGE) {
                         Toast.makeText(
                             this@MainActivity, "Permission Not Granted",
                             Toast.LENGTH_LONG
                         ).show()
                     }
-                }*/
+                }
             }
         }
 

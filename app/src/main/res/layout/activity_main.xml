@@ -192,6 +192,15 @@
             android:contentDescription="@string/brush_icon"
             android:scaleType="fitCenter"
             android:src="@drawable/brush" />
+
+        <ImageButton
+            android:id="@+id/ib_save"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/save_icon"
+            android:scaleType="fitCenter"
+            android:src="@drawable/save" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
